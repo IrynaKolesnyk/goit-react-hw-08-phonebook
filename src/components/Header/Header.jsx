@@ -1,10 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { mainRoutes } from '../../routes/mainRoutes';
+import HeaderNavStyled from './HeaderNavStyled';
+
 const Header = () => {
   return (
-    <nav>
-      <ul>
+    <HeaderNavStyled>
+      <ul className="navList">
         {mainRoutes.map(route => (
           <li key={route.name}>
             <NavLink
@@ -17,7 +19,7 @@ const Header = () => {
           </li>
         ))}
       </ul>
-    </nav>
+    </HeaderNavStyled>
   );
 };
 

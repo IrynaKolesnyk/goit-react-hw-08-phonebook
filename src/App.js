@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import { fetchContacts } from './redux/phoneBook/contacts-operations';
 import {
   getContacts,
@@ -9,6 +8,7 @@ import {
 } from './redux/phoneBook/contacts-selectors';
 import { getCurrentUser } from './redux/auth/auth-operations';
 import Header from './components/Header/Header';
+import Main from './components/Main/Main';
 
 class App extends Component {
   state = {};
@@ -20,6 +20,7 @@ class App extends Component {
     return (
       <div className="container">
         <Header />
+        <Main />
       </div>
     );
   }
