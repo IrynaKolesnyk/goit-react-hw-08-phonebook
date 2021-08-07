@@ -14,7 +14,7 @@ class App extends Component {
   state = {};
   componentDidMount() {
     this.props.onGetCurrentUser();
-    this.props.fetchContacts();
+    // this.props.fetchContacts();
   }
   render() {
     return (

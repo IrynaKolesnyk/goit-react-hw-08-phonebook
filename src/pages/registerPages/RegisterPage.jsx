@@ -15,6 +15,7 @@ class RegisterPage extends Component {
 
   handelSubmit = event => {
     event.preventDefault();
+    console.log(this.props.onRegister);
     this.props.onRegister(this.state);
     this.setState({ name: '', email: '', password: '' });
   };
@@ -24,7 +25,7 @@ class RegisterPage extends Component {
       <div>
         <h1>Страница регистрации</h1>
 
-        <form onSubmit={this.handleChange}>
+        <form onSubmit={this.handelSubmit}>
           <label>
             Имя
             <input

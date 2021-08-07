@@ -31,6 +31,17 @@ img {
   height: auto;
 }
 
+a {
+  outline: none;
+  text-decoration: none;
+}
+ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -54,7 +65,7 @@ code {
   border-image: linear-gradient(45deg, #0b2349 20%, #0d61bc 75%, #8aa9d6);
   border-image-slice: 1;
 }
-h1 {
+/* h1 {
   margin-top: 15px;
   margin-bottom: 30px;
   padding-bottom: 10px;
@@ -80,4 +91,4 @@ h2 {
   border-bottom: 3px solid transparent;
   border-image: linear-gradient(45deg, #0b2349 20%, #0d61bc 75%, #8aa9d6);
   border-image-slice: 1;
-}
+} */
