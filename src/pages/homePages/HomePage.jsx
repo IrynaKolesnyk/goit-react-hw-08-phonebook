@@ -1,6 +1,11 @@
 import React from 'react';
+import HomePageStyled from './HomePageStyled';
 const HomePage = () => {
-  return <h1>Welcome to the Phonebook Application!</h1>;
+  return (
+    <HomePageStyled>
+      <h1>Welcome to the Phonebook Application!</h1>
+    </HomePageStyled>
+  );
 };
 
 export default HomePage;

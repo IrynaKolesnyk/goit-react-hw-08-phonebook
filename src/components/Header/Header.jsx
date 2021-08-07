@@ -15,7 +15,7 @@ const Header = ({ isAuthenticated }) => {
             <NavLink
               to="/"
               exact
-              className="navLink"
+              className="navLink homeLink"
               activeClassName="activeLink"
             >
               Home

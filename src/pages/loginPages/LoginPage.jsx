@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
 import { login } from '../../redux/auth/auth-operations';
+import LoginPageStyled from './LoginPageStyled';
+import Button from '@material-ui/core/Button';
 
 class LoginView extends Component {
   state = {
@@ -24,11 +27,15 @@ class LoginView extends Component {
     const { email, password } = this.state;
 
     return (
-      <div>
-        <h1>Страница логина</h1>
+      <LoginPageStyled>
+        <h1>Log In</h1>
 
-        <form onSubmit={this.handleSubmit} autoComplete="off">
-          <label>
+        <form
+          onSubmit={this.handleSubmit}
+          autoComplete="off"
+          className="loginForm"
+        >
+          {/* <label>
             Почта
             <input
               type="email"
@@ -36,9 +43,27 @@ class LoginView extends Component {
               value={email}
               onChange={this.handleChange}
             />
-          </label>
-
-          <label>
+          </label> */}
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            label="Email"
+            type="email"
+            name="email"
+            value={email}
+            onChange={this.handleChange}
+            className="inputEmail"
+          />
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            label="Password"
+            type="password"
+            name="password"
+            value={password}
+            onChange={this.handleChange}
+          />
+          {/* <label>
             Пароль
             <input
               type="password"
@@ -46,12 +71,21 @@ class LoginView extends Component {
               value={password}
               onChange={this.handleChange}
             />
-          </label>
-
-          <button type="submit">Войти</button>
+          </label> */}
+          {/* <button type="submit" className="LogInBtn">
+            Log In
+          </button> */}
+          <Button
+            type="submit"
+            className="LogInBtn"
+            variant="contained"
+            color="primary"
+          >
+            Log In
+          </Button>
         </form>
         {this.props.isError && <h2>Error, try again</h2>}
-      </div>
+      </LoginPageStyled>
     );
   }
 }

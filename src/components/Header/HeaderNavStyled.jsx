@@ -10,12 +10,20 @@ const HeaderStyled = styled.header`
     align-items: center;
     justify-content: space-between;
   }
+
+  .homeLink {
+    margin-right: 40px;
+  }
   .navLink {
     font-size: 25px;
-    color: #4747e9;
+    color: #3a3ad1;
+    font-weight: 900;
+    &:hover {
+      color: #6e4ac2;
+    }
   }
   .activeLink {
-    color: tomato;
+    color: #6e4ac2;
   }
 `;
 

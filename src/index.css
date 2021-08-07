@@ -66,22 +66,23 @@ code {
   border-image: linear-gradient(45deg, #0b2349 20%, #0d61bc 75%, #8aa9d6);
   border-image-slice: 1;
 }
-/* h1 {
-  margin-top: 15px;
-  margin-bottom: 30px;
+h1 {
+  margin: 0 auto 30px;
+  width: 400px;
   padding-bottom: 10px;
   text-align: center;
   font-size: 40px;
   font-weight: 800;
-  border-bottom: 3px solid transparent;
+  text-transform: uppercase;
+  /* border-bottom: 3px solid transparent;
   border-image: linear-gradient(45deg, #0b2349 20%, #0d61bc 75%, #8aa9d6);
-  border-image-slice: 1;
+  border-image-slice: 1; */
   background: linear-gradient(45deg, #0b2349 20%, #0d61bc 75%, #8aa9d6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-h2 {
+/*h2 {
   margin-bottom: 20px;
   padding: 10px;
   font-size: 30px;
