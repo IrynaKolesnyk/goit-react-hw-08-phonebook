@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 const HomePage = () => {
-  return <h2>Home Page</h2>;
+  return <h1>Welcome to the Phonebook Application!</h1>;
 };
 
 export default HomePage;

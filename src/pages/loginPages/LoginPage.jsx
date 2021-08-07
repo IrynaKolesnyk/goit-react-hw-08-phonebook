@@ -50,10 +50,15 @@ class LoginView extends Component {
 
           <button type="submit">Войти</button>
         </form>
+        {this.props.isError && <h2>Error, try again</h2>}
       </div>
     );
   }
 }
+
+// const mapStateToProps = state => ({
+//   isError: getError(state),
+// });
 
 const mapDispatchToProps = {
   onLogin: login,

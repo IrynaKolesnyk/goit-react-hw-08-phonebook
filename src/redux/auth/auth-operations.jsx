@@ -25,11 +25,11 @@ const token = {
   },
 };
 
-export const register = credential => async dispatch => {
+export const register = user => async dispatch => {
   console.log('register operation');
   dispatch(registerRequest());
   try {
-    const response = await axios.post('/users/signup', credential);
+    const response = await axios.post('/users/signup', user);
     token.set(response.data.token);
     dispatch(registerSuccess(response.data));
   } catch (error) {
@@ -38,14 +38,14 @@ export const register = credential => async dispatch => {
   }
 };
 
-export const login = credential => async dispatch => {
+export const login = user => async dispatch => {
   dispatch(loginRequest());
   try {
-    const response = await axios.post('/users/login', credential);
+    const response = await axios.post('/users/login', user);
     token.set(response.data.token);
     dispatch(loginSuccess(response.data));
   } catch (error) {
-    console.log(error);
+    console.log(error.massage);
     dispatch(loginError(error.message));
   }
 };

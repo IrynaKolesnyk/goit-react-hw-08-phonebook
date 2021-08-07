@@ -1,31 +1,38 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { mainRoutes } from '../../routes/mainRoutes';
 import HeaderStyled from './HeaderNavStyled';
 import { connect } from 'react-redux';
 import { getIsAuthenticated } from '../../redux/auth/auth-selectors';
 import UserMenu from '../UserMenu/UserMenu';
+import Auth from '../Auth/Auth';
 
 const Header = ({ isAuthenticated }) => {
   return (
     <HeaderStyled>
-      <nav>
-        <ul className="navList">
-          {mainRoutes.map(route => (
-            <li key={route.name}>
+      <div className="container">
+        <nav className="siteNav">
+          <div>
+            <NavLink
+              to="/"
+              exact
+              className="navLink"
+              activeClassName="activeLink"
+            >
+              Home
+            </NavLink>
+            {isAuthenticated && (
               <NavLink
-                to={route.path}
-                exact={route.exact}
-                activeClassName="activeLink"
+                to="/contacts"
                 className="navLink"
+                activeClassName="activeLink"
               >
-                {route.name}
+                Contacts
               </NavLink>
-            </li>
-          ))}
-          {isAuthenticated && <UserMenu />}
-        </ul>
-      </nav>
+            )}
+          </div>
+          {isAuthenticated ? <UserMenu /> : <Auth />}
+        </nav>
+      </div>
     </HeaderStyled>
   );
 };
