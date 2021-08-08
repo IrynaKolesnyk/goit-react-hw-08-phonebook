@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import { register } from '../../redux/auth/auth-operations';
+import RegisterPageStyled from './RegisterPageStyled';
+import { getErrorAuth } from '../../redux/auth/auth-selectors';
 
 class RegisterPage extends Component {
   state = {
@@ -22,11 +26,15 @@ class RegisterPage extends Component {
   render() {
     const { name, email, password } = this.state;
     return (
-      <div>
-        <h1>Страница регистрации</h1>
+      <>
+        {this.props.isError ? (
+          <h2 className="error">{this.props.isError}</h2>
+        ) : (
+          <RegisterPageStyled>
+            <h1 className="regissterTitle">Sign Up</h1>
 
-        <form onSubmit={this.handelSubmit}>
-          <label>
+            <form onSubmit={this.handelSubmit}>
+              {/* <label>
             Имя
             <input
               type="text"
@@ -34,9 +42,19 @@ class RegisterPage extends Component {
               value={name}
               onChange={this.handleChange}
             />
-          </label>
+          </label> */}
+              <TextField
+                type="text"
+                name="name"
+                value={name}
+                onChange={this.handleChange}
+                label="Name"
+                variant="outlined"
+                id="outlined-basic"
+                className="marginRight"
+              />
 
-          <label>
+              {/* <label>
             Почта
             <input
               type="email"
@@ -44,9 +62,19 @@ class RegisterPage extends Component {
               value={email}
               onChange={this.handleChange}
             />
-          </label>
+          </label> */}
+              <TextField
+                type="email"
+                name="email"
+                value={email}
+                onChange={this.handleChange}
+                label="Email"
+                variant="outlined"
+                id="outlined-basic"
+                className="marginRight"
+              />
 
-          <label>
+              {/* <label>
             Пароль
             <input
               type="password"
@@ -54,16 +82,41 @@ class RegisterPage extends Component {
               value={password}
               onChange={this.handleChange}
             />
-          </label>
-          <button type="submit">Зарегистрироваться</button>
-        </form>
-      </div>
+          </label> */}
+              <TextField
+                type="password"
+                name="password"
+                value={password}
+                onChange={this.handleChange}
+                label="Password"
+                variant="outlined"
+                id="outlined-basic"
+              />
+              {/* <button className="registerBtn" type="submit">
+            Sign Up
+          </button> */}
+              <Button
+                type="submit"
+                className="registerBtn"
+                variant="contained"
+                color="primary"
+              >
+                Sign Up
+              </Button>
+            </form>
+          </RegisterPageStyled>
+        )}
+      </>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  isError: getErrorAuth(state),
+});
 
 const mapDispatchToProps = {
   onRegister: register,
 };
 
-export default connect(null, mapDispatchToProps)(RegisterPage);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterPage);

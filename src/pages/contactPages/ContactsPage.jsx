@@ -9,6 +9,7 @@ import {
   getLoading,
 } from '../../redux/phoneBook/contacts-selectors';
 import { fetchContacts } from '../../redux/phoneBook/contacts-operations';
+import ContactPageStyled from './ContactPageStyled';
 
 class ContactsPage extends Component {
   state = {};
@@ -17,13 +18,13 @@ class ContactsPage extends Component {
   }
   render() {
     return (
-      <div className="phoneBook">
-        <h1>Phonebook</h1>
+      <ContactPageStyled className="phoneBook">
+        <h2 className="contactTitle">Phonebook</h2>
         <ContactForm />
-        <h2>Contacts</h2>
+        <h2 className="contactListTitle">Contacts</h2>
         <Filter />
         <ContactList />
-      </div>
+      </ContactPageStyled>
     );
   }
 }

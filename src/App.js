@@ -4,8 +4,6 @@ import { getCurrentUser } from './redux/auth/auth-operations';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 
-import { getErrorAuth } from './redux/auth/auth-selectors';
-
 class App extends Component {
   state = {};
   componentDidMount() {
@@ -13,21 +11,20 @@ class App extends Component {
   }
   render() {
     return (
-      <>
+      <div>
         <Header />
         <Main />
-        {this.props.isError && <h2>Error, try again</h2>}
-      </>
+      </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  isError: getErrorAuth(state),
-});
+// const mapStateToProps = state => ({
+//   isError: getErrorAuth(state),
+// });
 
 const mapDispatchToProps = {
   onGetCurrentUser: getCurrentUser,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

@@ -4,7 +4,7 @@ const FilterStyled = styled.div`
   text-align: center;
   .title {
     color: #6b7b96;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
   .finde-input {
     display: block;

@@ -45,7 +45,7 @@ export const login = user => async dispatch => {
     token.set(response.data.token);
     dispatch(loginSuccess(response.data));
   } catch (error) {
-    console.log(error.massage);
+    console.log(error.message);
     dispatch(loginError(error.message));
   }
 };
