@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 import PrivateRoute from '../Routes/PrivateRoute';
 import PublicRoute from '../Routes/PublicRoute';
+// import Error from '../Error/Error';
 
 const AsyncHomePage = lazy(() => import('../../pages/homePages/HomePage'));
 const AsyncContactsPage = lazy(() =>
@@ -37,6 +38,7 @@ const Main = () => {
               component={AsyncRegistrPage}
             />
             <PublicRoute path="/login" restricted component={AsyncLoginPage} />
+            {/* <Route exact path="/error" component={Error} /> */}
           </Switch>
         </Suspense>
       </div>
