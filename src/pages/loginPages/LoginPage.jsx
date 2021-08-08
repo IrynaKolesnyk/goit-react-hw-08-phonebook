@@ -31,18 +31,15 @@ class LoginView extends Component {
 
     return (
       <>
-        {this.props.isError ? (
-          <h2 className="error">{this.props.isError}</h2>
-        ) : (
-          <LoginPageStyled>
-            <h1>Log In</h1>
+        <LoginPageStyled>
+          <h1>Log In</h1>
 
-            <form
-              onSubmit={this.handleSubmit}
-              autoComplete="off"
-              className="loginForm"
-            >
-              {/* <label>
+          <form
+            onSubmit={this.handleSubmit}
+            autoComplete="off"
+            className="loginForm"
+          >
+            {/* <label>
             Почта
             <input
               type="email"
@@ -51,26 +48,26 @@ class LoginView extends Component {
               onChange={this.handleChange}
             />
           </label> */}
-              <TextField
-                id="outlined-basic"
-                variant="outlined"
-                label="Email"
-                type="email"
-                name="email"
-                value={email}
-                onChange={this.handleChange}
-                className="inputEmail"
-              />
-              <TextField
-                id="outlined-basic"
-                variant="outlined"
-                label="Password"
-                type="password"
-                name="password"
-                value={password}
-                onChange={this.handleChange}
-              />
-              {/* <label>
+            <TextField
+              id="outlined-basic"
+              variant="outlined"
+              label="Email"
+              type="email"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+              className="inputEmail"
+            />
+            <TextField
+              id="outlined-basic"
+              variant="outlined"
+              label="Password"
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+            />
+            {/* <label>
             Пароль
             <input
               type="password"
@@ -79,20 +76,22 @@ class LoginView extends Component {
               onChange={this.handleChange}
             />
           </label> */}
-              {/* <button type="submit" className="LogInBtn">
+            {/* <button type="submit" className="LogInBtn">
             Log In
           </button> */}
-              <Button
-                type="submit"
-                className="LogInBtn"
-                variant="contained"
-                color="primary"
-              >
-                Log In
-              </Button>
-            </form>
-          </LoginPageStyled>
-        )}
+            <Button
+              type="submit"
+              className="LogInBtn"
+              variant="contained"
+              color="primary"
+            >
+              Log In
+            </Button>
+          </form>
+          {this.props.isError && (
+            <h2 className="error">{this.props.isError}</h2>
+          )}
+        </LoginPageStyled>
       </>
     );
   }

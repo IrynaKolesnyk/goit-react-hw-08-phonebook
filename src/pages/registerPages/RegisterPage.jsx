@@ -27,14 +27,11 @@ class RegisterPage extends Component {
     const { name, email, password } = this.state;
     return (
       <>
-        {this.props.isError ? (
-          <h2 className="error">{this.props.isError}</h2>
-        ) : (
-          <RegisterPageStyled>
-            <h1 className="regissterTitle">Sign Up</h1>
+        <RegisterPageStyled>
+          <h1 className="regissterTitle">Sign Up</h1>
 
-            <form onSubmit={this.handelSubmit}>
-              {/* <label>
+          <form onSubmit={this.handelSubmit}>
+            {/* <label>
             Имя
             <input
               type="text"
@@ -43,18 +40,18 @@ class RegisterPage extends Component {
               onChange={this.handleChange}
             />
           </label> */}
-              <TextField
-                type="text"
-                name="name"
-                value={name}
-                onChange={this.handleChange}
-                label="Name"
-                variant="outlined"
-                id="outlined-basic"
-                className="marginRight"
-              />
+            <TextField
+              type="text"
+              name="name"
+              value={name}
+              onChange={this.handleChange}
+              label="Name"
+              variant="outlined"
+              id="outlined-basic"
+              className="marginRight"
+            />
 
-              {/* <label>
+            {/* <label>
             Почта
             <input
               type="email"
@@ -63,18 +60,18 @@ class RegisterPage extends Component {
               onChange={this.handleChange}
             />
           </label> */}
-              <TextField
-                type="email"
-                name="email"
-                value={email}
-                onChange={this.handleChange}
-                label="Email"
-                variant="outlined"
-                id="outlined-basic"
-                className="marginRight"
-              />
+            <TextField
+              type="email"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+              label="Email"
+              variant="outlined"
+              id="outlined-basic"
+              className="marginRight"
+            />
 
-              {/* <label>
+            {/* <label>
             Пароль
             <input
               type="password"
@@ -83,29 +80,29 @@ class RegisterPage extends Component {
               onChange={this.handleChange}
             />
           </label> */}
-              <TextField
-                type="password"
-                name="password"
-                value={password}
-                onChange={this.handleChange}
-                label="Password"
-                variant="outlined"
-                id="outlined-basic"
-              />
-              {/* <button className="registerBtn" type="submit">
+            <TextField
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+              label="Password"
+              variant="outlined"
+              id="outlined-basic"
+            />
+            {/* <button className="registerBtn" type="submit">
             Sign Up
           </button> */}
-              <Button
-                type="submit"
-                className="registerBtn"
-                variant="contained"
-                color="primary"
-              >
-                Sign Up
-              </Button>
-            </form>
-          </RegisterPageStyled>
-        )}
+            <Button
+              type="submit"
+              className="registerBtn"
+              variant="contained"
+              color="primary"
+            >
+              Sign Up
+            </Button>
+          </form>
+        </RegisterPageStyled>
+        {this.props.isError && <h2 className="error">{this.props.isError}</h2>}
       </>
     );
   }
