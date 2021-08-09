@@ -38,7 +38,7 @@ export const register = user => async dispatch => {
   } finally {
     setTimeout(() => {
       dispatch(registerError(null));
-    }, 3000);
+    }, 2000);
   }
 };
 
@@ -54,7 +54,7 @@ export const login = user => async dispatch => {
   } finally {
     setTimeout(() => {
       dispatch(loginError(null));
-    }, 3000);
+    }, 2000);
   }
 };
 
@@ -70,7 +70,7 @@ export const logOut = () => async dispatch => {
   } finally {
     setTimeout(() => {
       dispatch(logoutError(null));
-    }, 3000);
+    }, 2000);
   }
 };
 
@@ -93,6 +93,6 @@ export const getCurrentUser = () => async (dispatch, getState) => {
   } finally {
     setTimeout(() => {
       dispatch(getCurrentUserError(null));
-    }, 3000);
+    }, 2000);
   }
 };
