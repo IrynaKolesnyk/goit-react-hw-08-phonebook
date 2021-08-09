@@ -10,31 +10,12 @@ import {
 import { getErrorContacts } from '../../redux/error/error-selectors';
 import { fetchContacts } from '../../redux/phoneBook/contacts-operations';
 import ContactPageStyled from './ContactPageStyled';
-import { error } from '@pnotify/core/dist/PNotify.js';
-import '@pnotify/core/dist/BrightTheme.css';
-import '@pnotify/core/dist/PNotify.css';
 
 class ContactsPage extends Component {
   state = {};
   componentDidMount() {
     this.props.fetchContacts();
   }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.isError !== this.props.isError && this.props.isError) {
-      error({
-        text: this.props.isError,
-        delay: 1000,
-      });
-      console.log(
-        error({
-          text: this.props.isError,
-          delay: 1000,
-        }),
-      );
-    }
-  }
-
   render() {
     return (
       <ContactPageStyled className="phoneBook">
