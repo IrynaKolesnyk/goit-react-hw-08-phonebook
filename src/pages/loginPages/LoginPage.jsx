@@ -5,8 +5,11 @@ import { connect } from 'react-redux';
 import { login } from '../../redux/auth/auth-operations';
 import LoginPageStyled from './LoginPageStyled';
 import { getErrorAuth } from '../../redux/auth/auth-selectors';
-import { Link, Route } from 'react-router-dom';
-import Error from '../../components/Error/Error';
+// import { Link, Route } from 'react-router-dom';
+// import Error from '../../components/Error/Error';
+import { error, alert } from '@pnotify/core/dist/PNotify.js';
+import '@pnotify/core/dist/BrightTheme.css';
+import '@pnotify/core/dist/PNotify.css';
 
 class LoginView extends Component {
   state = {
@@ -89,8 +92,13 @@ class LoginView extends Component {
             </Button>
           </form>
           {this.props.isError && (
-            <h2 className="error">{this.props.isError}</h2>
+            <h2 className="error">{this.props.isError}. Please try again</h2>
           )}
+          {/* {this.props.isError &&
+            error({
+              text: 'Invalid request',
+              delay: 1000,
+            })} */}
         </LoginPageStyled>
       </>
     );

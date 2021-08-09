@@ -35,6 +35,10 @@ export const register = user => async dispatch => {
   } catch (error) {
     console.log(error.message);
     dispatch(registerError(error.message));
+  } finally {
+    setTimeout(() => {
+      dispatch(registerError(null));
+    }, 3000);
   }
 };
 
@@ -47,6 +51,10 @@ export const login = user => async dispatch => {
   } catch (error) {
     console.log(error.message);
     dispatch(loginError(error.message));
+  } finally {
+    setTimeout(() => {
+      dispatch(loginError(null));
+    }, 3000);
   }
 };
 
@@ -57,8 +65,12 @@ export const logOut = () => async dispatch => {
     token.unset();
     dispatch(logoutSuccess());
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
     dispatch(logoutError(error.message));
+  } finally {
+    setTimeout(() => {
+      dispatch(logoutError(null));
+    }, 3000);
   }
 };
 
@@ -78,5 +90,9 @@ export const getCurrentUser = () => async (dispatch, getState) => {
     dispatch(getCurrentUserSuccess(response.data));
   } catch (error) {
     dispatch(getCurrentUserError(error.message));
+  } finally {
+    setTimeout(() => {
+      dispatch(getCurrentUserError(null));
+    }, 3000);
   }
 };

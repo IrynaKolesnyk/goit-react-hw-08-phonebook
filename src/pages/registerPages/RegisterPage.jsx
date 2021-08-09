@@ -102,7 +102,9 @@ class RegisterPage extends Component {
             </Button>
           </form>
         </RegisterPageStyled>
-        {this.props.isError && <h2 className="error">{this.props.isError}</h2>}
+        {this.props.isError && (
+          <h2 className="error">{this.props.isError}. Please try again</h2>
+        )}
       </>
     );
   }
