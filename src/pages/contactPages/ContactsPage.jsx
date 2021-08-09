@@ -5,17 +5,36 @@ import ContactList from '../../components/ContactList/ContactList';
 import { connect } from 'react-redux';
 import {
   getContacts,
-  getError,
   getLoading,
 } from '../../redux/phoneBook/contacts-selectors';
+import { getErrorContacts } from '../../redux/error/error-selectors';
 import { fetchContacts } from '../../redux/phoneBook/contacts-operations';
 import ContactPageStyled from './ContactPageStyled';
+import { error } from '@pnotify/core/dist/PNotify.js';
+import '@pnotify/core/dist/BrightTheme.css';
+import '@pnotify/core/dist/PNotify.css';
 
 class ContactsPage extends Component {
   state = {};
   componentDidMount() {
     this.props.fetchContacts();
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.isError !== this.props.isError && this.props.isError) {
+      error({
+        text: this.props.isError,
+        delay: 1000,
+      });
+      console.log(
+        error({
+          text: this.props.isError,
+          delay: 1000,
+        }),
+      );
+    }
+  }
+
   render() {
     return (
       <ContactPageStyled className="phoneBook">
@@ -31,7 +50,7 @@ class ContactsPage extends Component {
 const mapStateToProps = state => ({
   contacts: getContacts(state),
   isLoadingContacts: getLoading(state),
-  isError: getError(state),
+  isError: getErrorContacts(state),
 });
 
 const mapDispatchToProps = {

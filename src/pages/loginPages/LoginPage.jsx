@@ -4,18 +4,31 @@ import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import { login } from '../../redux/auth/auth-operations';
 import LoginPageStyled from './LoginPageStyled';
-import { getErrorAuth } from '../../redux/auth/auth-selectors';
-// import { Link, Route } from 'react-router-dom';
-// import Error from '../../components/Error/Error';
-// import { error, alert } from '@pnotify/core/dist/PNotify.js';
-// import '@pnotify/core/dist/BrightTheme.css';
-// import '@pnotify/core/dist/PNotify.css';
+import { getErrorAuth } from '../../redux/error/error-selectors';
+import { error } from '@pnotify/core/dist/PNotify.js';
+import '@pnotify/core/dist/BrightTheme.css';
+import '@pnotify/core/dist/PNotify.css';
 
 class LoginView extends Component {
   state = {
     email: '',
     password: '',
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.isError !== this.props.isError && this.props.isError) {
+      error({
+        text: this.props.isError,
+        delay: 1000,
+      });
+      console.log(
+        error({
+          text: this.props.isError,
+          delay: 1000,
+        }),
+      );
+    }
+  }
 
   handleChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
@@ -91,14 +104,9 @@ class LoginView extends Component {
               Log In
             </Button>
           </form>
-          {this.props.isError && (
+          {/* {this.props.isError && (
             <h2 className="error">{this.props.isError}. Please try again</h2>
-          )}
-          {/* {this.props.isError &&
-            error({
-              text: 'Invalid request',
-              delay: 1000,
-            })} */}
+          )} */}
         </LoginPageStyled>
       </>
     );

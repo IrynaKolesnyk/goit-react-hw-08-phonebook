@@ -1,4 +1,5 @@
-import { combineReducers, createReducer } from "@reduxjs/toolkit";
+import { combineReducers, createReducer } from '@reduxjs/toolkit';
+import { logoutSuccess } from '../auth/auth-actions';
 import actions, {
   addContactError,
   addContactRequest,
@@ -9,17 +10,21 @@ import actions, {
   getContactError,
   getContactSuccess,
   getContactRequest,
-} from "./phoneBookActions";
+} from './phoneBookActions';
 
 const items = createReducer([], {
   [getContactSuccess]: (_, action) => action.payload,
   [addContactSuccess]: (state, action) => [action.payload, ...state],
   [deleteContactSuccess]: (state, action) =>
     state.filter(({ id }) => id !== action.payload),
+  [logoutSuccess]: () => {
+    return [];
+  },
 });
 
-const filter = createReducer("", {
+const filter = createReducer('', {
   [actions.changeFilter]: (_, action) => action.payload,
+  [logoutSuccess]: () => '',
 });
 
 const loading = createReducer(false, {
@@ -32,23 +37,11 @@ const loading = createReducer(false, {
   [getContactRequest]: () => true,
   [getContactSuccess]: () => false,
   [getContactError]: () => false,
-});
-
-const setError = (_, { payload }) => payload;
-const refreshError = () => null;
-
-const error = createReducer(null, {
-  [addContactRequest]: refreshError,
-  [addContactError]: setError,
-  [deleteContactRequest]: refreshError,
-  [deleteContactError]: setError,
-  [getContactRequest]: refreshError,
-  [getContactError]: setError,
+  [logoutSuccess]: () => false,
 });
 
 export default combineReducers({
   items,
   filter,
   loading,
-  error,
 });

@@ -11,6 +11,7 @@ const ContactList = ({ contacts, onDeleteContact }) => {
     <ContactListStyled>
       {contacts.map(contact => {
         const { id, name, number } = contact;
+        const handleDelete = () => onDeleteContact(id);
 
         return (
           <li className="item" key={id}>
@@ -28,6 +29,8 @@ const ContactList = ({ contacts, onDeleteContact }) => {
               color="secondary"
               startIcon={<DeleteIcon />}
               className="delBtn"
+              type="button"
+              onClick={handleDelete}
             >
               Delete
             </Button>

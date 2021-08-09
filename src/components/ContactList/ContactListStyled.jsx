@@ -24,7 +24,7 @@ const ContactListStyled = styled.ul`
     font-size: 20px;
   }
   .delBtn {
-    margin-left: 250px;
+    margin-left: 200px;
   }
 `;
 
